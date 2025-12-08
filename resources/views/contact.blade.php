@@ -326,7 +326,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Phone</h3>
                             <a href="tel:+60199710470" class="text-purple-600 hover:text-purple-700 font-semibold transition-colors">
-                                +60 19971 0470
+                                +60 17 310 3966
                             </a>
                         </div>
 
@@ -340,8 +340,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Address</h3>
                             <p class="text-gray-600 leading-relaxed">
-                                Kemayan Point<br>
-                                68100 Batu Caves<br>
+                                Batu Caves<br>
                                 Selangor, Malaysia
                             </p>
                         </div>

@@ -101,9 +101,11 @@
                 <!-- Brand Section -->
                 <div class="lg:col-span-1">
                     <div class="mb-6">
-                        <h3 class="text-2xl font-black gradient-text-purple">
-                            IGEN VERITAS
-                        </h3>
+                        <div class="logo-container w-24 md:w-32 lg:w-40">
+                            <a href="{{ route('homepage') }}">
+                                <img src="{{ asset('igen-logo.png') }}" alt="IGEN VERITAS" class="w-full h-auto">
+                            </a>
+                        </div>
                         <p class="text-gray-400 mt-4 leading-relaxed">
                             Powering the future with intelligent solutions and cutting-edge technology.
                         </p>
@@ -142,22 +144,22 @@
                     </h4>
                     <ul class="space-y-3">
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
+                            <a href="{{ route('homepage') }}" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
+                            <a href="{{ route('aboutus') }}" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">About Us</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
+                            <a href="{{ route('services') }}" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">Our Services</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
+                            <a href="{{ route('contact') }}" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">Contact Us</span>
                             </a>
                         </li>
@@ -221,7 +223,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">Phone</p>
-                                <p class="font-semibold">+60 17310 3966</p>
+                                <p class="font-semibold">+60 17 310 3966</p>
                             </div>
                         </a>
 
@@ -248,7 +250,7 @@
                 <p class="text-gray-400 text-sm">
                     © 2024 <span class="font-bold text-white">IGEN VERITAS</span>. All rights reserved.
                 </p>
-                <div class="flex gap-6 text-sm">
+                <!-- <div class="flex gap-6 text-sm">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
                         Privacy Policy
                     </a>
@@ -258,7 +260,7 @@
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
                         Cookies
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

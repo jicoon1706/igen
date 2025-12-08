@@ -172,6 +172,16 @@
             transform: translate(10px, -10px);
         }
         
+        /* Hide scrollbar but keep functionality */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
         /* Pulse animation */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -256,38 +266,14 @@
                     <div class="fade-in-left">
                         <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">Our Story</span>
                         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
-                            The Vision Behind <span class="gradient-text">IGEN VERITAS</span>
+                            The Vision Behind IGEN VERITAS
                         </h2>
                         <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                            At <strong>IGEN VERITAS</strong>, we represent a new wave of innovators. <strong>IGEN</strong> is inspired by iGeneration—Generation Z, a generation born in the digital era and driven by transformation.
+                            <strong>IGEN</strong> represents the spirit of the new generation, born in the digital age, curious, adaptive, and constantly pushing boundaries. It reflects energy, innovation, and a mindset that embraces change rather than fears it.
                         </p>
                         <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                            We're not just adapting to the future; we're shaping it. In a world overflowing with information, <strong>VERITAS</strong>—which means truth—remains our foundation. We believe technology should empower rather than mislead, and enhance rather than exploit.
+                            <strong>VERITAS</strong> is the Latin word for <strong>truth.</strong> In a world where information spreads faster than ever, truth is more important than technology itself. It is our foundation honesty in communication, integrity in design, and transparency in every solution we build.
                         </p>
-                        <div class="space-y-4">
-                            <div class="flex gap-4 items-start">
-                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Bold Innovation</h3>
-                                    <p class="text-gray-600">Shaping the future with cutting-edge AI solutions</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start">
-                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Unwavering Integrity</h3>
-                                    <p class="text-gray-600">Truth and transparency in everything we do</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     
                     <div class="fade-in-right">
@@ -297,18 +283,21 @@
                                 <div class="bg-white rounded-3xl p-8">
                                     <div class="space-y-8">
                                         <div class="text-center">
-                                            <div class="text-5xl font-black gradient-text mb-2">50+</div>
-                                            <p class="text-gray-700 font-semibold">Projects Delivered</p>
+                                            <div class="text-5xl font-black gradient-text mb-2">🚀</div>
+                                            <p class="text-gray-700 font-semibold">Fresh Perspective</p>
+                                            <p class="text-sm text-gray-500 mt-2">Bringing innovative ideas to life</p>
                                         </div>
                                         <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
                                         <div class="text-center">
-                                            <div class="text-5xl font-black gradient-text mb-2">100%</div>
-                                            <p class="text-gray-700 font-semibold">Client Satisfaction</p>
+                                            <div class="text-5xl font-black gradient-text mb-2">💡</div>
+                                            <p class="text-gray-700 font-semibold">Cutting-Edge Tech</p>
+                                            <p class="text-sm text-gray-500 mt-2">Latest AI & software solutions</p>
                                         </div>
                                         <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
                                         <div class="text-center">
-                                            <div class="text-5xl font-black gradient-text mb-2">24/7</div>
-                                            <p class="text-gray-700 font-semibold">Support Always Available</p>
+                                            <div class="text-5xl font-black gradient-text mb-2">🎯</div>
+                                            <p class="text-gray-700 font-semibold">Client-Focused</p>
+                                            <p class="text-sm text-gray-500 mt-2">Your success is our mission</p>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +319,7 @@
                         <div class="inline-block px-4 py-2 bg-purple-600/20 rounded-full text-purple-300 text-sm font-semibold mb-6 border border-purple-500/30">Vision</div>
                         <h2 class="text-4xl sm:text-5xl font-black mb-6">Our Vision</h2>
                         <p class="text-xl text-gray-300 leading-relaxed">
-                            Empowering businesses with intelligent AI-driven software for smarter decisions and optimized workflows. We envision a future where technology amplifies human potential.
+                            To create a future where businesses operate with clarity, confidence, and control through intelligent technology.
                         </p>
                     </div>
                     
@@ -338,7 +327,7 @@
                         <div class="inline-block px-4 py-2 bg-purple-600/20 rounded-full text-purple-300 text-sm font-semibold mb-6 border border-purple-500/30">Mission</div>
                         <h2 class="text-4xl sm:text-5xl font-black mb-6">Our Mission</h2>
                         <p class="text-xl text-gray-300 leading-relaxed">
-                            We develop innovative AI-powered solutions that enhance business efficiency, streamline processes, and support data-driven decision-making. Your growth is our purpose.
+                            To design powerful, user-focused software that simplifies operations, accelerates growth, and enables organizations to make smarter decisions.
                         </p>
                     </div>
                 </div>
@@ -351,7 +340,7 @@
                 <div class="text-center mb-20">
                     <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">What Drives Us</span>
                     <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-6">
-                        Core <span class="gradient-text">Values</span>
+                        Core <span class="text-gray-900t">Values</span>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto">The principles that guide every decision we make</p>
                 </div>
@@ -401,32 +390,29 @@
 
         <!-- Team Section -->
         <section id="team" class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20">
                     <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">Our People</span>
                     <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-6">
-                        Meet The <span class="gradient-text">Visionaries</span>
+                        Meet The Visionaries
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto">Talented leaders driving innovation at the forefront of AI</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Team Member 1 -->
                     <div class="team-member hover-lift fade-in-left">
-                        <div class="team-member-img h-80 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-72 h-72 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-6xl">👨‍💼</span>
+                        <div class="team-member-img h-64 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-5xl">👨‍💼</span>
                             </div>
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-3xl font-black text-gray-900 mb-2">Syarifuddin Akmal</h3>
-                            <div class="inline-block px-4 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-bold mb-4">CEO & Founder</div>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                A visionary leader with deep expertise in AI and business strategy, steering IGEN VERITAS toward revolutionary digital solutions and sustainable growth.
-                            </p>
-                            <div class="flex gap-4">
-                                <button class="p-2 rounded-full hover:bg-purple-100 transition-colors">
-                                    <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-black text-gray-900 mb-2">Syarifuddin Akmal</h3>
+                            <div class="inline-block px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-bold mb-4">CEO & Founder</div>
+                            <div class="flex gap-2">
+                                <button onclick="window.open('https://www.linkedin.com/in/muhammad-syarifuddin-akmal-azizul-shah-362b432a8/', '_blank')" class="p-2 rounded-full hover:bg-purple-100 transition-colors">
+                                    <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
                                 </button>
@@ -435,21 +421,58 @@
                     </div>
 
                     <!-- Team Member 2 -->
-                    <div class="team-member hover-lift fade-in-right">
-                        <div class="team-member-img h-80 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-72 h-72 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-6xl">👨‍💻</span>
+                    <div class="team-member hover-lift fade-in-left delay-1">
+                        <div class="team-member-img h-64 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-5xl">👨‍💻</span>
                             </div>
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-3xl font-black text-gray-900 mb-2">Arif Azlan</h3>
-                            <div class="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-bold mb-4">Co-Founder</div>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                A tech innovator with comprehensive expertise in software architecture, ensuring our solutions are robust, scalable, and future-proof for tomorrow's challenges.
-                            </p>
-                            <div class="flex gap-4">
-                                <button class="p-2 rounded-full hover:bg-blue-100 transition-colors">
-                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-black text-gray-900 mb-2">Arif Azlan</h3>
+                            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-bold mb-4">Front End Dev</div>
+                            <div class="flex gap-2">
+                                <button onclick="window.open('https://www.linkedin.com/in/muhammad-arif-bin-azlan-1698a72b8/', '_blank')" class="p-2 rounded-full hover:bg-blue-100 transition-colors">
+                                    <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-member hover-lift fade-in-right delay-1">
+                        <div class="team-member-img h-64 bg-gradient-to-br from-cyan-600 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-5xl">👩‍💼</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-black text-gray-900 mb-2">Arif Jihan</h3>
+                            <div class="inline-block px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-xs font-bold mb-4">UI/UX Designer</div>
+                            <div class="flex gap-2">
+                                <button onclick="window.open('https://www.linkedin.com/in/ariff-norjihan-8a1105332/', '_blank')" class="p-2 rounded-full hover:bg-cyan-100 transition-colors">
+                                    <svg class="w-5 h-5 text-cyan-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-member hover-lift fade-in-right delay-2">
+                        <div class="team-member-img h-64 bg-gradient-to-br from-pink-600 to-rose-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-5xl">👨‍🎨</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-black text-gray-900 mb-2">Harith Zulhairi</h3>
+                            <div class="inline-block px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-bold mb-4">Back End Dev</div>
+                            <div class="flex gap-2">
+                                <button onclick="window.open('https://www.linkedin.com/in/muhammad-harith-bin-zulhairi-732b16140/', '_blank')" class="p-2 rounded-full hover:bg-pink-100 transition-colors">
+                                    <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
                                 </button>
@@ -532,7 +555,11 @@
         
         // Add keyboard navigation
         setupKeyboardNavigation();
+        
+        // Initialize horizontal scroll for team section
+        initializeTeamScroll();
     });
+
 
     // Function to create dynamic particles
     function createParticles() {
@@ -731,5 +758,5 @@
     console.log('%cInnovating with integrity, one line of code at a time.', 'color: #a855f7;');
 </script>
 
-
-    </body>
+</body>
+</html>

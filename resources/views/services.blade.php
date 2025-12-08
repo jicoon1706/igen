@@ -286,25 +286,25 @@
                 <div class="text-center mb-20">
                     <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">What We Offer</span>
                     <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-6">
-                        Premium <span class="gradient-text">Solutions</span>
+                        Smart & Stunning Digital Experiences
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Cutting-edge services to elevate your business to new heights</p>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Reliable, fast and user-friendly solutions for modern businesses</p>
                 </div>
 
                 <div id="services" class="grid md:grid-cols-2 gap-8">
                     <!-- Service Card 1 -->
                     <div class="service-card hover-lift fade-in-left shadow-xl">
                         <div class="p-10">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-8">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m-4-4l-4 4m4-4l4-4M9.172 13.828a4 4 0 015.656 0M9.172 9.172a4 4 0 015.656 0"></path>
+                            <div class="mb-8 inline-block p-6 bg-gradient-to-br from-purple-600 to-pink-600 backdrop-blur-sm rounded-3xl">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
                             <h3 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-                                Software Development
+                                Website & Web App
                             </h3>
                             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Transform your ideas into powerful, scalable software solutions enhanced with cutting-edge AI technology.
+                                We create websites that put your business on the internet where customers can see it
                             </p>
                             <div class="space-y-4 mb-10">
                                 <div class="feature-item">
@@ -329,17 +329,17 @@
                                         <p class="text-gray-600 text-sm">Seamless performance across all devices and platforms</p>
                                     </div>
                                 </div>
-                                <div class="feature-item">
+                                <!-- <div class="feature-item">
                                     <div class="feature-icon">
                                         <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                    </div>
-                                    <div>
+                                    </div> -->
+                                    <!-- <div>
                                         <p class="font-semibold text-gray-900 mb-1">AI Integration</p>
                                         <p class="text-gray-600 text-sm">Advanced intelligence woven into every solution</p>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div> -->
                             </div>
                             <button onclick="handleGetStarted()" class="cta-button bg-purple-600 text-white hover:bg-purple-700 shadow-lg hover:shadow-xl">
                                 <span class="cta-button-text">Get Started</span>
@@ -353,16 +353,16 @@
                     <!-- Service Card 2 -->
                     <div class="service-card hover-lift fade-in-right shadow-xl delay-1">
                         <div class="p-10">
-                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mb-8">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            <div class="mb-8 inline-block p-6 bg-gradient-to-br from-blue-600 to-purple-600 backdrop-blur-sm rounded-3xl">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
                             <h3 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-                                AI Consultation
+                                Mobile App Solutions
                             </h3>
                             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Unlock the full potential of artificial intelligence with strategic guidance and implementation expertise.
+                                Create powerful native and cross-platform mobile applications that engage users on iOS and Android
                             </p>
                             <div class="space-y-4 mb-10">
                                 <div class="feature-item">
@@ -372,8 +372,8 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <p class="font-semibold text-gray-900 mb-1">Strategy Development</p>
-                                        <p class="text-gray-600 text-sm">Tailored AI strategies aligned with your business goals</p>
+                                        <p class="font-semibold text-gray-900 mb-1">Native iOS & Android Apps</p>
+                                        <p class="text-gray-600 text-sm">Fully optimized apps for iPhone, iPad, and Android devices</p>
                                     </div>
                                 </div>
                                 <div class="feature-item">
@@ -383,8 +383,8 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <p class="font-semibold text-gray-900 mb-1">Smart Automation</p>
-                                        <p class="text-gray-600 text-sm">Intelligent automation to reduce costs and improve efficiency</p>
+                                        <p class="font-semibold text-gray-900 mb-1">Cross-Platform Solutions</p>
+                                        <p class="text-gray-600 text-sm">One codebase, seamless performance across all platforms</p>
                                     </div>
                                 </div>
                                 <div class="feature-item">
@@ -394,8 +394,8 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <p class="font-semibold text-gray-900 mb-1">Data Intelligence</p>
-                                        <p class="text-gray-600 text-sm">Actionable insights from complex data for informed decisions</p>
+                                        <p class="font-semibold text-gray-900 mb-1">User-Centric Design</p>
+                                        <p class="text-gray-600 text-sm">Beautiful, intuitive interfaces designed for your users</p>
                                     </div>
                                 </div>
                             </div>
@@ -412,10 +412,10 @@
         </section>
 
         <!-- Service Details Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div class="max-w-6xl mx-auto">
+        <!-- <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50"> -->
+            <!-- <div class="max-w-6xl mx-auto"> -->
                 <!-- Software Development Details -->
-                <div class="mb-24 fade-in-up">
+                <!-- <div class="mb-24 fade-in-up">
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
                         <div class="order-2 lg:order-1">
                             <div class="service-showcase h-96 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
@@ -450,10 +450,10 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- AI Consultation Details -->
-                <div class="fade-in-up delay-1">
+                <!-- <div class="fade-in-up delay-1">
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <span class="inline-block text-blue-600 font-bold text-sm mb-4 uppercase tracking-wider">Service Deep Dive</span>
@@ -489,16 +489,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div> -->
+        <!-- </section> -->
 
         <!-- Why Choose Us -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <!-- <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-20">>
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-20">
                     <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">Why We Stand Out</span>
                     <h2 class="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
-                        The IGEN VERITAS <span class="gradient-text">Advantage</span>
+                        The IGEN VERITAS Advantage
                     </h2>
                 </div>
 
@@ -534,7 +534,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- CTA Section -->
         <section class="py-32 px-4 sm:px-6 lg:px-8 gradient-hero relative overflow-hidden">

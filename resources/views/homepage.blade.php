@@ -188,13 +188,13 @@
             <div class="max-w-6xl mx-auto text-center relative z-10">
                 <div class="fade-in-up">
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-tight tracking-tight">
-                        Powering the Future<br>
-                        <span class="gradient-text">with Intelligence</span>
+                        Smart Web & Mobile App Development<br>
+                        <span class="gradient-text">for Your Business</span>
                     </h1>
                 </div>
                 
                 <p class="text-lg sm:text-xl lg:text-2xl text-purple-100 mb-12 max-w-3xl mx-auto fade-in-up delay-1 leading-relaxed">
-                    Transform your business with cutting-edge AI solutions and enterprise-grade software development
+                    Reliable, scalable, and designed with purpose
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in-up delay-2">
@@ -208,7 +208,7 @@
                 </div>
                 
                 <!-- Stats section -->
-                <div class="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto fade-in-up delay-3">
+                <!-- <div class="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto fade-in-up delay-3">
                     <div class="glass rounded-2xl p-6 hover-scale">
                         <div class="text-4xl font-black text-white mb-2">50+</div>
                         <div class="text-purple-200 text-sm">Projects Completed</div>
@@ -221,7 +221,7 @@
                         <div class="text-4xl font-black text-white mb-2">24/7</div>
                         <div class="text-purple-200 text-sm">Support Available</div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -236,7 +236,7 @@
                         What We <span class="text-purple-600">Do</span>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        We specialize in creating powerful digital solutions that drive business growth and innovation
+                        Reliable web and mobile solutions tailored to your business needs
                     </p>
                 </div>
 
@@ -265,11 +265,11 @@
                                 Website Development
                             </h3>
                             <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                                Build stunning, responsive websites that captivate your audience and drive conversions. From corporate sites to e-commerce platforms, we create digital experiences that matter.
+                                We create modern, responsive websites that look great on all devices. Whether it’s a company profile, portfolio, or business management, we build sites that are fast, clean, and easy to use.
                             </p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Responsive Design</span>
-                                <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">SEO Optimized</span>
+                                <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">User Friendly</span>
                                 <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Fast Loading</span>
                             </div>
                         </div>
@@ -312,7 +312,7 @@
         </section>
 
         <!-- Why Choose Us Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <!-- <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6">
@@ -355,7 +355,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- CTA Section -->
         <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 gradient-bg relative overflow-hidden">
@@ -383,7 +383,7 @@
                     </div>
                     <div class="glass rounded-2xl p-6">
                         <div class="text-purple-200 mb-2">Call Us</div>
-                        <div class="text-white font-semibold">+1 (555) 123-4567</div>
+                        <div class="text-white font-semibold">+60 17 310 3966</div>
                     </div>
                     <div class="glass rounded-2xl p-6">
                         <div class="text-purple-200 mb-2">Follow Us</div>
