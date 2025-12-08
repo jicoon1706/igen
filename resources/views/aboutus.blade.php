@@ -5,69 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - IGEN VERITAS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom styles that work with Tailwind CDN -->
     <style>
-        /* Custom CSS variables */
-        :root {
-            --primary: #9333ea;
-            --secondary: #6d28d9;
-            --accent: #7c3aed;
-            --light-purple: #f3e8ff;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* Base styles */
         body {
-            font-family: ui-sans-serif, system-ui, sans-serif;
-            color: #111827;
-            background-color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            color: #111827;
-            font-weight: bold;
+        /* Animated Gradient Background */
+        .gradient-hero {
+            background: linear-gradient(-45deg, #7c3aed, #a855f7, #6d28d9, #581c87);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
-        .gradient-purple {
-            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #581c87 100%);
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        .service-card {
-            background-color: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
         }
         
-        .service-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: translateY(-0.5rem);
-        }
-
-        .team-card {
-            background-color: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
         }
         
-        .team-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: translateY(-0.5rem);
-        }
-        
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom animations */
+        /* Fade in animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -75,196 +54,426 @@
             }
         }
         
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
             }
-            50% {
-                box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
         
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
-        .animate-pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
         }
         
-        /* Gradient text */
+        .fade-in-left {
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+        
+        .fade-in-right {
+            animation: fadeInRight 1s ease-out forwards;
+        }
+        
+        /* Delay classes */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
+        /* Hover scale effect */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(124, 58, 237, 0.2);
+        }
+        
+        /* Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #c084fc 0%, #e9d5ff 100%);
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
+        /* Glass morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Value card styles */
+        .value-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(168, 85, 247, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .value-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Team member card */
+        .team-member {
+            position: relative;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .team-member-img {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+        
+        .team-member-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .team-member:hover .team-member-img::before {
+            opacity: 1;
+            transform: translate(10px, -10px);
+        }
+        
+        /* Pulse animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(100px, -100px) scale(1.5);
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.3;
+            }
+        }
+        
+        .particle {
+            animation: particle-float 20s infinite;
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white">
     @include('header')
 
-    <main class="w-full">
+    <main>
         <!-- Hero Section -->
-        <section class="min-h-[70vh] gradient-purple flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <!-- Decorative elements -->
-            <div class="absolute top-10 left-5 w-48 h-48 bg-purple-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-5 w-64 h-64 bg-purple-300/20 rounded-full blur-3xl"></div>
+        <section class="min-h-screen gradient-hero flex items-center justify-center px-4 pt-32 pb-20 relative overflow-hidden">
+            <!-- Decorative particles -->
+            <div class="particle" style="width: 10px; height: 10px; top: 15%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 70%; left: 85%; animation-delay: 5s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; top: 45%; left: 80%; animation-delay: 10s;"></div>
             
-            <div class="max-w-4xl mx-auto text-center relative z-10 pt-16">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp">
-                    We're IGEN VERITAS
-                </h1>
-                <p class="text-lg sm:text-xl text-purple-100 mb-8 max-w-2xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
-                    Harnessing the Power of AI and innovative Software to Optimize and Elevate Your Business
+            <!-- Floating orbs -->
+            <div class="absolute top-10 left-10 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl float-animation"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl float-animation" style="animation-delay: 3s;"></div>
+            
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <div class="fade-in-up">
+                    <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white text-sm font-semibold mb-6">About Our Journey</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                        We're <span class="gradient-text">IGEN VERITAS</span>
+                    </h1>
+                </div>
+                <p class="text-lg sm:text-xl lg:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto fade-in-up delay-1 leading-relaxed">
+                    Harnessing the power of AI and innovative software to optimize and elevate your business
                 </p>
+                <div class="fade-in-up delay-2">
+                    <button onclick="scrollToSection('story')" class="px-8 py-4 bg-white text-purple-900 font-bold rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 transform hover:scale-110">
+                        Learn Our Story →
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- Our Story Section -->
-        <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl sm:text-5xl font-bold mb-8 text-gray-900 animate-fadeInUp">Our Story</h2>
-                
-                <p class="text-lg text-gray-700 mb-6 leading-relaxed animate-fadeInUp" style="animation-delay: 0.1s;">
-                    At <b>IGEN VERITAS</b>, we represent a new wave of innovators. <b>IGEN</b> is inspired by iGeneration, also known as Generation Z, 
-                    a generation born in the digital era and driven by transformation. We are not just adapting to the future, we are shaping it. 
-                    In a world overflowing with information, <b>VERITAS</b>, which means truth, remains our foundation. We believe that technology should empower rather than mislead, 
-                    and enhance rather than exploit.
-                </p>
-
-                <p class="text-lg text-gray-700 mb-12 leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
-                    Our name reflects our purpose, which is to combine the bold vision of our generation with the integrity of truth and transparency. 
-                    We are committed to delivering AI-powered software that is not only innovative but also reliable and ethical.
-                </p>
-
-                <!-- Vision & Mission Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="flex justify-center animate-fadeInUp" style="animation-delay: 0.3s;">
-                        <img src="../src/assets/about-us-vimi.png" alt="IGEN VERITAS" class="w-full max-w-sm rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                    </div>
-                    <div class="animate-fadeInUp" style="animation-delay: 0.4s;">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-purple-900 mb-4">Our Vision</h3>
-                        <p class="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
-                            Empowering businesses with intelligent AI-driven software for smarter decisions and optimized workflows.
+        <!-- Story Section -->
+        <section id="story" class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-purple-50 to-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="fade-in-left">
+                        <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">Our Story</span>
+                        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
+                            The Vision Behind <span class="gradient-text">IGEN VERITAS</span>
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                            At <strong>IGEN VERITAS</strong>, we represent a new wave of innovators. <strong>IGEN</strong> is inspired by iGeneration—Generation Z, a generation born in the digital era and driven by transformation.
                         </p>
-                        
-                        <h3 class="text-3xl sm:text-4xl font-bold text-purple-900 mb-4">Our Mission</h3>
-                        <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-                            We develop innovative AI-powered solutions that enhance business efficiency, streamline processes, 
-                            and support data-driven decision-making, helping organizations achieve greater productivity and growth.
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            We're not just adapting to the future; we're shaping it. In a world overflowing with information, <strong>VERITAS</strong>—which means truth—remains our foundation. We believe technology should empower rather than mislead, and enhance rather than exploit.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start">
+                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Bold Innovation</h3>
+                                    <p class="text-gray-600">Shaping the future with cutting-edge AI solutions</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Unwavering Integrity</h3>
+                                    <p class="text-gray-600">Truth and transparency in everything we do</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in-right">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl transform rotate-6"></div>
+                            <div class="relative bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-1">
+                                <div class="bg-white rounded-3xl p-8">
+                                    <div class="space-y-8">
+                                        <div class="text-center">
+                                            <div class="text-5xl font-black gradient-text mb-2">50+</div>
+                                            <p class="text-gray-700 font-semibold">Projects Delivered</p>
+                                        </div>
+                                        <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                                        <div class="text-center">
+                                            <div class="text-5xl font-black gradient-text mb-2">100%</div>
+                                            <p class="text-gray-700 font-semibold">Client Satisfaction</p>
+                                        </div>
+                                        <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                                        <div class="text-center">
+                                            <div class="text-5xl font-black gradient-text mb-2">24/7</div>
+                                            <p class="text-gray-700 font-semibold">Support Always Available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Section -->
+        <section class="py-32 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white relative overflow-hidden">
+            <div class="absolute top-20 right-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div class="fade-in-up">
+                        <div class="inline-block px-4 py-2 bg-purple-600/20 rounded-full text-purple-300 text-sm font-semibold mb-6 border border-purple-500/30">Vision</div>
+                        <h2 class="text-4xl sm:text-5xl font-black mb-6">Our Vision</h2>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Empowering businesses with intelligent AI-driven software for smarter decisions and optimized workflows. We envision a future where technology amplifies human potential.
+                        </p>
+                    </div>
+                    
+                    <div class="fade-in-up delay-1">
+                        <div class="inline-block px-4 py-2 bg-purple-600/20 rounded-full text-purple-300 text-sm font-semibold mb-6 border border-purple-500/30">Mission</div>
+                        <h2 class="text-4xl sm:text-5xl font-black mb-6">Our Mission</h2>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            We develop innovative AI-powered solutions that enhance business efficiency, streamline processes, and support data-driven decision-making. Your growth is our purpose.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Values Section -->
-        <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl sm:text-5xl font-bold text-center mb-12 text-gray-900 animate-fadeInUp">Our Core Values</h2>
-                
+        <!-- Core Values Section -->
+        <section id="values" class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20">
+                    <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">What Drives Us</span>
+                    <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-6">
+                        Core <span class="gradient-text">Values</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">The principles that guide every decision we make</p>
+                </div>
+
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Value Card 1 -->
-                    <div class="service-card p-8 text-center animate-fadeInUp">
-                        <div class="mb-4 flex justify-center">
-                            <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- Value 1 -->
+                    <div class="value-card hover-lift bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-purple-900 mb-3">Innovation</h3>
-                        <p class="text-gray-600">
-                            We continuously push boundaries and embrace cutting-edge technologies to deliver forward-thinking solutions.
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Innovation</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We continuously push boundaries and embrace cutting-edge technologies to deliver forward-thinking solutions that drive real change.
                         </p>
                     </div>
 
-                    <!-- Value Card 2 -->
-                    <div class="service-card p-8 text-center animate-fadeInUp" style="animation-delay: 0.1s;">
-                        <div class="mb-4 flex justify-center">
-                            <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- Value 2 -->
+                    <div class="value-card hover-lift bg-white rounded-2xl p-8 shadow-lg fade-in-up delay-1">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-purple-900 mb-3">Integrity</h3>
-                        <p class="text-gray-600">
-                            Transparency and ethical practices form the foundation of everything we do and every client relationship we build.
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Integrity</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Transparency and ethical practices form the foundation of everything we do, building lasting trust with our clients and partners.
                         </p>
                     </div>
 
-                    <!-- Value Card 3 -->
-                    <div class="service-card p-8 text-center animate-fadeInUp" style="animation-delay: 0.2s;">
-                        <div class="mb-4 flex justify-center">
-                            <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- Value 3 -->
+                    <div class="value-card hover-lift bg-white rounded-2xl p-8 shadow-lg fade-in-up delay-2">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-purple-900 mb-3">Excellence</h3>
-                        <p class="text-gray-600">
-                            We strive for excellence in every project, delivering high-quality solutions that exceed expectations.
+                        <h3 class="text-2xl font-black text-gray-900 mb-4">Excellence</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We strive for perfection in every project, delivering exceptional quality that exceeds expectations and creates lasting impact.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Team Members Section -->
-        <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-12 animate-fadeInUp">
-                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-                        Meet Our Talented<br class="hidden sm:block"> Team Members
+        <!-- Team Section -->
+        <section id="team" class="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20">
+                    <span class="inline-block text-purple-600 font-bold text-sm mb-4 uppercase tracking-wider">Our People</span>
+                    <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-6">
+                        Meet The <span class="gradient-text">Visionaries</span>
                     </h2>
-                    <p class="text-lg text-gray-600">Visionary leaders driving innovation and excellence</p>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Talented leaders driving innovation at the forefront of AI</p>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Team Card 1 -->
-                    <div class="team-card p-8 text-center animate-fadeInUp" style="animation-delay: 0.1s;">
-                        <div class="mb-6 flex justify-center">
-                            <img src="../src/assets/akmal_pic.png" alt="Syarifuddin Akmal" class="w-56 h-56 object-cover rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Team Member 1 -->
+                    <div class="team-member hover-lift fade-in-left">
+                        <div class="team-member-img h-80 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-72 h-72 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-6xl">👨‍💼</span>
+                            </div>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Syarifuddin Akmal</h3>
-                        <p class="text-lg text-purple-600 font-semibold mb-4">CEO and Founder</p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            A visionary leader with expertise in AI and business strategy, driving IGEN VERITAS toward innovative solutions.
-                        </p>
-                        <a href="#" class="inline-block" target="_blank">
-                            <img src="../src/assets/linkedin.png" alt="LinkedIn" class="w-8 h-8 hover:opacity-70 transition-opacity">
-                        </a>
+                        <div class="p-8">
+                            <h3 class="text-3xl font-black text-gray-900 mb-2">Syarifuddin Akmal</h3>
+                            <div class="inline-block px-4 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-bold mb-4">CEO & Founder</div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                A visionary leader with deep expertise in AI and business strategy, steering IGEN VERITAS toward revolutionary digital solutions and sustainable growth.
+                            </p>
+                            <div class="flex gap-4">
+                                <button class="p-2 rounded-full hover:bg-purple-100 transition-colors">
+                                    <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Team Card 2 -->
-                    <div class="team-card p-8 text-center animate-fadeInUp" style="animation-delay: 0.2s;">
-                        <div class="mb-6 flex justify-center">
-                            <img src="../src/assets/arif_pic.png" alt="Arif Azlan" class="w-56 h-56 object-cover rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <!-- Team Member 2 -->
+                    <div class="team-member hover-lift fade-in-right">
+                        <div class="team-member-img h-80 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-72 h-72 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                <span class="text-6xl">👨‍💻</span>
+                            </div>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Arif Azlan</h3>
-                        <p class="text-lg text-purple-600 font-semibold mb-4">Co-Founder</p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            A tech innovator with deep expertise in software development, ensuring our solutions are robust and scalable.
-                        </p>
-                        <a href="#" class="inline-block" target="_blank">
-                            <img src="../src/assets/linkedin.png" alt="LinkedIn" class="w-8 h-8 hover:opacity-70 transition-opacity">
-                        </a>
+                        <div class="p-8">
+                            <h3 class="text-3xl font-black text-gray-900 mb-2">Arif Azlan</h3>
+                            <div class="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-bold mb-4">Co-Founder</div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                A tech innovator with comprehensive expertise in software architecture, ensuring our solutions are robust, scalable, and future-proof for tomorrow's challenges.
+                            </p>
+                            <div class="flex gap-4">
+                                <button class="p-2 rounded-full hover:bg-blue-100 transition-colors">
+                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 gradient-purple relative overflow-hidden">
-            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl"></div>
+        <section class="py-32 px-4 sm:px-6 lg:px-8 gradient-hero relative overflow-hidden">
+            <div class="particle" style="width: 12px; height: 12px; top: 20%; left: 15%;"></div>
+            <div class="particle" style="width: 18px; height: 18px; top: 70%; right: 10%; animation-delay: 5s;"></div>
             
-            <div class="max-w-4xl mx-auto text-center relative z-10 animate-fadeInUp">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                    Ready to Transform Your Business?
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight fade-in-up">
+                    Ready to Transform Your <span class="gradient-text">Business?</span>
                 </h2>
-                <p class="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
-                    Let's work together to bring your vision to life with innovative AI solutions
+                <p class="text-lg sm:text-xl text-purple-100 mb-10 max-w-2xl mx-auto fade-in-up delay-1 leading-relaxed">
+                    Let's collaborate to bring your vision to life with innovative AI solutions tailored to your needs
                 </p>
-                <button onclick="handleGetStarted()" class="inline-block px-8 py-3 bg-white text-purple-900 font-bold text-base sm:text-lg rounded-lg hover:bg-purple-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 animate-pulse-glow">
-                    Get In Touch
+                <button onclick="handleGetStarted()" class="fade-in-up delay-2 px-10 py-4 bg-white text-purple-900 font-black text-lg rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 transform hover:scale-110">
+                    Get In Touch 🚀
                 </button>
             </div>
         </section>
@@ -273,33 +482,254 @@
     @include('footer')
 
     <script>
-        // Handle get started button
-        function handleGetStarted() {
-            const email = prompt('Enter your email to get in touch:');
-            if (email) {
-                console.log('User email:', email);
-                alert('Thank you! We will contact you at ' + email);
-            }
+    // Function to handle smooth scrolling to sections
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
+    }
 
-        // Intersection Observer for animations on scroll
+    // Function to handle Get Started/Get In Touch button
+    function handleGetStarted() {
+        alert("Thank you for your interest! We'll contact you soon to discuss your project.");
+        // In a real application, this would open a contact form or redirect to contact page
+        // window.location.href = "/contact";
+    }
+
+    // Intersection Observer for fade-in animations on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create particles dynamically
+        createParticles();
+        
+        // Initialize intersection observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
+                    entry.target.classList.add('animated-visible');
                 }
             });
         }, observerOptions);
 
-        // Observe all cards
-        document.querySelectorAll('.service-card, .team-card').forEach(card => {
-            observer.observe(card);
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
         });
-    </script>
-</body>
-</html>
+
+        // Add hover sound effects (optional)
+        addHoverEffects();
+        
+        // Add scroll progress indicator
+        createScrollProgress();
+        
+        // Add keyboard navigation
+        setupKeyboardNavigation();
+    });
+
+    // Function to create dynamic particles
+    function createParticles() {
+        const particlesContainer = document.querySelector('.gradient-hero');
+        if (!particlesContainer) return;
+
+        for (let i = 0; i < 15; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 5-20px
+            const size = Math.random() * 15 + 5;
+            
+            // Random position
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            
+            // Random animation delay
+            const delay = Math.random() * 20;
+            
+            // Random animation duration
+            const duration = Math.random() * 10 + 15;
+            
+            // Set styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.top = `${top}%`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random color
+            const colors = [
+                'rgba(255, 255, 255, 0.3)',
+                'rgba(168, 85, 247, 0.2)',
+                'rgba(124, 58, 237, 0.2)',
+                'rgba(236, 72, 153, 0.2)'
+            ];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Function to add interactive hover effects
+    function addHoverEffects() {
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple element
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.7);
+                    transform: scale(0);
+                    animation: ripple-animation 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                // Remove ripple after animation
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .animated-visible {
+                opacity: 1 !important;
+                transform: translate(0, 0) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Function to create scroll progress indicator
+    function createScrollProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.id = 'scroll-progress';
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    // Function to setup keyboard navigation
+    function setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            // Spacebar to scroll down one viewport
+            if (e.code === 'Space' && !e.target.matches('input, textarea, button')) {
+                e.preventDefault();
+                window.scrollBy({
+                    top: window.innerHeight * 0.8,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Escape to scroll to top
+            if (e.code === 'Escape') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Number keys to jump to sections
+            if (e.code >= 'Digit1' && e.code <= 'Digit5') {
+                const sections = ['story', 'values', 'team'];
+                const index = parseInt(e.code.slice(-1)) - 1;
+                if (sections[index]) {
+                    scrollToSection(sections[index]);
+                }
+            }
+        });
+    }
+
+    // Add page load animation
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease-in';
+        
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+
+    // Add mouse move parallax effect
+    document.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+        
+        const floatElements = document.querySelectorAll('.float-animation');
+        floatElements.forEach(el => {
+            el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+
+    // Add click animation to value cards
+    document.querySelectorAll('.value-card').forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+
+    // Add scroll-triggered animations
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        const parallaxElements = document.querySelectorAll('.fade-in-left, .fade-in-right');
+        parallaxElements.forEach(el => {
+            el.style.transform = `translateY(${rate * 0.5}px)`;
+        });
+    });
+
+    // Add console welcome message
+    console.log('%c🌟 Welcome to IGEN VERITAS 🌟', 'font-size: 18px; color: #7c3aed; font-weight: bold;');
+    console.log('%cInnovating with integrity, one line of code at a time.', 'color: #a855f7;');
+</script>
+
+
+    </body>

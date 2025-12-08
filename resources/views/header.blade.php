@@ -91,31 +91,31 @@
 <nav class="fixed top-0 left-0 w-full z-50 animate-slideDown">
     <div class="px-5 md:px-12 lg:px-20 flex items-center justify-between py-4">
         <!-- Logo -->
-        <div class="logo-container w-32 md:w-40 lg:w-48">
-            <a href="#">
-                <img src="#" alt="IGEN VERITAS" class="w-full h-auto">
+        <div class="logo-container w-24 md:w-32 lg:w-40">
+            <a href="{{ route('homepage') }}">
+                <img src="{{ asset('igen-logo.png') }}" alt="IGEN VERITAS" class="w-full h-auto">
             </a>
         </div>
         
         <!-- Navigation Links -->
         <ul class="hidden md:flex items-center space-x-8 lg:space-x-12">
             <li>
-                <a href="#" class="nav-link text-white text-sm lg:text-base">
+                <a href="{{ route('homepage') }}" class="nav-link text-white text-sm lg:text-base">
                     Home
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white text-sm lg:text-base">
+                <a href="{{ route('aboutus') }}" class="nav-link text-white text-sm lg:text-base">
                     About Us
                 </a>
             </li>
             <li>
-                <a href=#" class="nav-link text-white text-sm lg:text-base">
+                <a href="{{ route('services') }}" class="nav-link text-white text-sm lg:text-base">
                     Our Services
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white text-sm lg:text-base">
+                <a href="{{ route('contact') }}" class="nav-link text-white text-sm lg:text-base">
                     Contact Us
                 </a>
             </li>

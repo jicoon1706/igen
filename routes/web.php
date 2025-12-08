@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homepage');
-});
+})->name('homepage');
 
 Route::get('/aboutus', function () {
     return view('aboutus');
-});
+})->name('aboutus');
 
 Route::get('/services', function () {
     return view('services');
-});
+})->name('services');
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
