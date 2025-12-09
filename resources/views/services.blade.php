@@ -548,9 +548,10 @@
                 <p class="text-lg sm:text-xl text-purple-100 mb-10 max-w-2xl mx-auto fade-in-up delay-1 leading-relaxed">
                     Let's collaborate to bring your vision to life with our comprehensive solutions
                 </p>
-                <button onclick="handleGetStarted()" class="fade-in-up delay-2 px-10 py-4 bg-white text-purple-900 font-black text-lg rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 transform hover:scale-110">
-                    Start Your Journey 🚀
-                </button>
+                <a href="{{ route('contact') }}" 
+                    class="fade-in-up delay-2 px-10 py-4 bg-white text-purple-900 font-black text-lg rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 transform hover:scale-110">
+                    Start Your Journey <span class="inline-block ml-2">🚀</span>
+                </a>
             </div>
         </section>
     </main>
@@ -568,13 +569,7 @@
 
         // Handle get started button
         function handleGetStarted() {
-            const email = prompt('Enter your email to get started:');
-            if (email && email.includes('@')) {
-                console.log('User email:', email);
-                alert('Thank you for your interest! We will contact you at ' + email + ' within 24 hours.');
-            } else if (email) {
-                alert('Please enter a valid email address.');
-            }
+        window.location.href = "{{ route('contact') }}";
         }
 
         // Intersection Observer for scroll animations

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - IGEN VERITAS</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -492,102 +493,145 @@
         ✓ Thank you! Your message has been sent successfully. We'll be in touch soon.
     </div>
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
-        const inputs = form.querySelectorAll('input[required], textarea[required]');
+   <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
 
-        // Validate form
-        function validateForm() {
-            let isValid = true;
-            inputs.forEach(input => {
-                if (input.type === 'email') {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    isValid = isValid && emailRegex.test(input.value);
-                } else {
-                    isValid = isValid && input.value.trim() !== '';
-                }
-            });
-            
-            submitBtn.disabled = !isValid;
-            return isValid;
-        }
-
-        // Add event listeners
+    // Validate form function
+    function validateForm() {
+        let isValid = true;
         inputs.forEach(input => {
-            input.addEventListener('input', validateForm);
-            input.addEventListener('change', validateForm);
-        });
-
-        // Handle form submission
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateForm()) {
-                // Show success message
-                successMessage.style.display = 'block';
-                
-                // Reset form
-                form.reset();
-                submitBtn.disabled = true;
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
+            if (input.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = isValid && emailRegex.test(input.value);
+            } else {
+                isValid = isValid && input.value.trim() !== '';
             }
         });
+        
+        submitBtn.disabled = !isValid;
+        return isValid;
+    }
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    // Add event listeners for validation
+    inputs.forEach(input => {
+        input.addEventListener('input', validateForm);
+        input.addEventListener('change', validateForm);
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) translateX(0)';
+    // Handle form submission
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                // Get CSRF token
+                const token = document.querySelector('meta[name="csrf-token"]')?.content;
+                
+                // Prepare form data - FIX: Use correct field names
+                const data = {
+                    first_name: document.getElementById('firstName').value,
+                    last_name: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    company: document.getElementById('company').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+                
+                // Send to server
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('Error: ' + (result.message || 'Something went wrong'));
                 }
-            });
-        }, observerOptions);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                validateForm();
+            }
+        }
+    });
 
-        // Observe fade elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-            fadeElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = el.classList.contains('fade-in-left') ? 'translateX(-30px)' : 
-                                     el.classList.contains('fade-in-right') ? 'translateX(30px)' : 'translateY(30px)';
-                el.style.transition = 'all 0.8s ease';
-                observer.observe(el);
-            });
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-            // Observe contact cards
-            const contactCards = document.querySelectorAll('.contact-card');
-            contactCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(card);
-            });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) translateX(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe fade elements
+    document.addEventListener('DOMContentLoaded', () => {
+        const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+        fadeElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = el.classList.contains('fade-in-left') ? 'translateX(-30px)' : 
+                                 el.classList.contains('fade-in-right') ? 'translateX(30px)' : 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
         });
 
-        // Parallax effect for particles
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const speed = (index + 1) * 0.02;
-                const x = (window.innerWidth - e.pageX * speed) / 100;
-                const y = (window.innerHeight - e.pageY * speed) / 100;
-                particle.style.transform = `translate(${x}px, ${y}px)`;
-            });
+        // Observe contact cards
+        const contactCards = document.querySelectorAll('.contact-card');
+        contactCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
         });
 
         // Initial validation check
         validateForm();
-    </script>
+    });
+
+    // Parallax effect for particles
+    document.addEventListener('mousemove', (e) => {
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            const speed = (index + 1) * 0.02;
+            const x = (window.innerWidth - e.pageX * speed) / 100;
+            const y = (window.innerHeight - e.pageY * speed) / 100;
+            particle.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
+</script>
 </body>
 </html>

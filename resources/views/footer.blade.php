@@ -183,7 +183,7 @@
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">Mobile Apps</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">AI Solutions</span>
                             </a>
@@ -192,7 +192,7 @@
                             <a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 inline-block transition-all duration-300 group">
                                 <span class="group-hover:border-b-2 group-hover:border-purple-500">Cloud Services</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 

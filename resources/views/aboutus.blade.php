@@ -404,7 +404,9 @@
                     <div class="team-member hover-lift fade-in-left">
                         <div class="team-member-img h-64 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
                             <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-5xl">👨‍💼</span>
+                                <img src="{{ asset('images/team/akmal_igen.jpg') }}" 
+                                    alt="Syarifuddin Akmal" 
+                                    class="w-48 h-48 rounded-full object-cover">
                             </div>
                         </div>
                         <div class="p-6">
@@ -424,7 +426,9 @@
                     <div class="team-member hover-lift fade-in-left delay-1">
                         <div class="team-member-img h-64 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
                             <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-5xl">👨‍💻</span>
+                                <img src="{{ asset('images/team/arif_azlan.png') }}" 
+                                    alt="Syarifuddin Akmal" 
+                                    class="w-48 h-48 rounded-full object-cover">
                             </div>
                         </div>
                         <div class="p-6">
@@ -444,7 +448,9 @@
                     <div class="team-member hover-lift fade-in-right delay-1">
                         <div class="team-member-img h-64 bg-gradient-to-br from-cyan-600 to-teal-600 flex items-center justify-center relative overflow-hidden">
                             <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-5xl">👩‍💼</span>
+                                <img src="{{ asset('images/team/arif_jihan.jpg') }}" 
+                                    alt="Syarifuddin Akmal" 
+                                    class="w-48 h-48 rounded-full object-cover">
                             </div>
                         </div>
                         <div class="p-6">
@@ -464,7 +470,9 @@
                     <div class="team-member hover-lift fade-in-right delay-2">
                         <div class="team-member-img h-64 bg-gradient-to-br from-pink-600 to-rose-600 flex items-center justify-center relative overflow-hidden">
                             <div class="w-48 h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <span class="text-5xl">👨‍🎨</span>
+                                <img src="{{ asset('images/team/harith.jpeg') }}" 
+                                    alt="Syarifuddin Akmal" 
+                                    class="w-48 h-48 rounded-full object-cover">
                             </div>
                         </div>
                         <div class="p-6">
@@ -495,9 +503,10 @@
                 <p class="text-lg sm:text-xl text-purple-100 mb-10 max-w-2xl mx-auto fade-in-up delay-1 leading-relaxed">
                     Let's collaborate to bring your vision to life with innovative AI solutions tailored to your needs
                 </p>
-                <button onclick="handleGetStarted()" class="fade-in-up delay-2 px-10 py-4 bg-white text-purple-900 font-black text-lg rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 transform hover:scale-110">
+                <a href="{{ route('contact') }}" 
+                    class="px-12 py-5 bg-white text-purple-900 font-black text-xl rounded-full hover:bg-purple-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 transform hover:scale-110 glow-effect inline-block">
                     Get In Touch 🚀
-                </button>
+                </a>
             </div>
         </section>
     </main>
