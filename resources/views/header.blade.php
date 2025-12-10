@@ -110,6 +110,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('portfolio') }}" class="nav-link text-white text-sm lg:text-base">
+                    Portfolio
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('services') }}" class="nav-link text-white text-sm lg:text-base">
                     Our Services
                 </a>
@@ -132,10 +137,11 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/95 px-5 py-4">
         <ul class="space-y-4">
-            <li><a href="#" class="text-white block py-2 hover:text-purple-400">Home</a></li>
-            <li><a href="#" class="text-white block py-2 hover:text-purple-400">About Us</a></li>
-            <li><a href="#" class="text-white block py-2 hover:text-purple-400">Our Services</a></li>
-            <li><a href="#" class="text-white block py-2 hover:text-purple-400">Contact Us</a></li>
+            <li><a href="{{ route('homepage') }}" class="text-white block py-2 hover:text-purple-400">Home</a></li>
+            <li><a href="{{ route('aboutus') }}" class="text-white block py-2 hover:text-purple-400">About Us</a></li>
+            <li><a href="{{ route('portfolio') }}" class="text-white block py-2 hover:text-purple-400">Portfolio</a></li>
+            <li><a href="{{ route('services') }}" class="text-white block py-2 hover:text-purple-400">Our Services</a></li>
+            <li><a href="{{ route('contact') }}" class="text-white block py-2 hover:text-purple-400">Contact Us</a></li>
         </ul>
     </div>
 </nav>
