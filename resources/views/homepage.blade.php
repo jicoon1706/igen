@@ -380,7 +380,7 @@
                 <div class="mt-16 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
                     <div class="glass rounded-2xl p-6">
                         <div class="text-purple-200 mb-2">Email Us</div>
-                        <div class="text-white font-semibold">info@igenveritas.com</div>
+                        <div class="text-white font-semibold">igenveritas@gmail.com</div>
                     </div>
                     <div class="glass rounded-2xl p-6">
                         <div class="text-purple-200 mb-2">Call Us</div>

@@ -313,8 +313,8 @@
                                 </svg>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-                            <a href="mailto:info@igenveritas.com" class="text-purple-600 hover:text-purple-700 font-semibold transition-colors">
-                                info@igenveritas.com
+                            <a href="mailto:igenveritas@gmail.com" class="text-purple-600 hover:text-purple-700 font-semibold transition-colors">
+                                igenveritas@gmail.com
                             </a>
                         </div>
 

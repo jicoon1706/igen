@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 520" fill="none">
+  <!-- Head -->
+  <circle cx="120" cy="80" r="52" fill="#F5C5A3"/>
+  <!-- Hair -->
+  <path d="M68 56 Q85 16 120 14 Q155 16 172 56 Q165 30 148 24 Q135 18 120 18 Q105 18 92 24 Q75 30 68 56Z" fill="#1a0800"/>
+  <path d="M68 56 Q64 44 66 60 Q68 44 72 52Z" fill="#1a0800"/>
+  <path d="M172 56 Q176 44 174 60 Q172 44 168 52Z" fill="#1a0800"/>
+  <!-- Short hair top -->
+  <ellipse cx="120" cy="38" rx="52" ry="28" fill="#1a0800"/>
+  <!-- Ears -->
+  <ellipse cx="68" cy="82" rx="9" ry="12" fill="#F5C5A3"/>
+  <ellipse cx="172" cy="82" rx="9" ry="12" fill="#F5C5A3"/>
+  <!-- Eyes -->
+  <ellipse cx="105" cy="78" rx="8" ry="9" fill="white"/>
+  <ellipse cx="135" cy="78" rx="8" ry="9" fill="white"/>
+  <circle cx="107" cy="80" r="5.5" fill="#1a0800"/>
+  <circle cx="137" cy="80" r="5.5" fill="#1a0800"/>
+  <circle cx="109" cy="78" r="1.8" fill="white"/>
+  <circle cx="139" cy="78" r="1.8" fill="white"/>
+  <!-- Eyebrows (thicker, straighter) -->
+  <path d="M96 67 Q105 63 114 67" stroke="#1a0800" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M126 67 Q135 63 144 67" stroke="#1a0800" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M116 92 Q120 102 124 92" stroke="#d4906a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M113 102 Q120 108 127 102" stroke="#d4906a" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Lips -->
+  <path d="M110 112 Q120 120 130 112" stroke="#b06a50" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Stubble / jawline hint -->
+  <path d="M80 108 Q80 128 120 135 Q160 128 160 108" stroke="#e8a87c" stroke-width="1" stroke-dasharray="2 2" fill="none" opacity="0.4"/>
+  <!-- Neck -->
+  <rect x="108" y="126" width="24" height="38" rx="4" fill="#F5C5A3"/>
+  <!-- White shirt -->
+  <path d="M94 162 L108 146 L120 160 L132 146 L146 162 L142 230 L98 230Z" fill="white"/>
+  <!-- Tie -->
+  <path d="M116 158 L120 164 L124 158 L121 230 L119 230Z" fill="#7c3aed"/>
+  <path d="M115 154 L120 158 L125 154 L124 162 L116 162Z" fill="#6d28d9"/>
+  <!-- Suit jacket left -->
+  <path d="M44 168 Q66 156 94 162 L98 230 L74 318 L34 288 L40 212Z" fill="#1e1b4b"/>
+  <!-- Suit jacket right -->
+  <path d="M196 168 Q174 156 146 162 L142 230 L166 318 L206 288 L200 212Z" fill="#1e1b4b"/>
+  <!-- Lapel left -->
+  <path d="M94 162 L108 146 L104 188 L86 178Z" fill="#16134a"/>
+  <!-- Lapel right -->
+  <path d="M146 162 L132 146 L136 188 L154 178Z" fill="#16134a"/>
+  <!-- Suit pants -->
+  <rect x="76" y="228" width="88" height="88" rx="4" fill="#1e1b4b"/>
+  <!-- Belt -->
+  <rect x="76" y="228" width="88" height="12" rx="2" fill="#111827"/>
+  <rect x="113" y="228" width="14" height="12" rx="2" fill="#374151"/>
+  <!-- Left trouser leg -->
+  <path d="M80 314 Q66 390 70 460 L96 464 Q96 390 106 316Z" fill="#1e1b4b"/>
+  <!-- Right trouser leg -->
+  <path d="M160 314 Q174 390 170 460 L144 464 Q144 390 134 316Z" fill="#1e1b4b"/>
+  <!-- Left shoe -->
+  <path d="M65 455 Q60 476 75 481 Q92 485 100 474 L96 461 Q88 472 75 467Z" fill="#111827"/>
+  <path d="M60 476 Q58 484 66 486 Q73 488 79 484Z" fill="#1f2937"/>
+  <!-- Right shoe -->
+  <path d="M175 455 Q180 476 165 481 Q148 485 140 474 L144 461 Q152 472 165 467Z" fill="#111827"/>
+  <path d="M180 476 Q182 484 174 486 Q167 488 161 484Z" fill="#1f2937"/>
+  <!-- Left arm (suit sleeve) -->
+  <path d="M46 171 Q26 214 32 286 L58 281 Q54 218 70 176Z" fill="#1e1b4b"/>
+  <!-- Right arm (suit sleeve) -->
+  <path d="M194 171 Q214 214 208 286 L182 281 Q186 218 170 176Z" fill="#1e1b4b"/>
+  <!-- Left cuff + hand -->
+  <rect x="28" y="275" width="32" height="14" rx="4" fill="white"/>
+  <ellipse cx="44" cy="295" rx="14" ry="12" fill="#F5C5A3"/>
+  <!-- Right cuff + hand -->
+  <rect x="180" y="275" width="32" height="14" rx="4" fill="white"/>
+  <ellipse cx="196" cy="295" rx="14" ry="12" fill="#F5C5A3"/>
+  <!-- Pocket square -->
+  <path d="M152 182 L158 174 L164 182 L160 178Z" fill="white" opacity="0.8"/>
+  <!-- Button -->
+  <circle cx="120" cy="200" r="3" fill="#374151"/>
+  <circle cx="120" cy="215" r="3" fill="#374151"/>
+</svg>
