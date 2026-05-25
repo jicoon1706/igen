@@ -1,4 +1,4 @@
-@extends('prototype1.layout')
+@extends('layout')
 @section('title', 'IGEN VERITAS | Home')
 @section('content')
 
@@ -63,11 +63,11 @@
 
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row gap-4 mb-14" data-aos="fade-up" data-aos-delay="300">
-                <a href="{{ route('prototype1.contact') }}" class="relative overflow-hidden btn-shimmer group inline-flex items-center justify-center gap-2 bg-primary-gradient text-white px-9 py-4 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/45 hover:-translate-y-0.5 transition-all duration-300">
+                <a href="{{ route('contact') }}" class="relative overflow-hidden btn-shimmer group inline-flex items-center justify-center gap-2 bg-primary-gradient text-white px-9 py-4 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/45 hover:-translate-y-0.5 transition-all duration-300">
                     Start a Project
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
-                <a href="{{ route('prototype1.services') }}" class="inline-flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-700 px-9 py-4 rounded-full font-bold hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50/50 transition-all duration-300">
+                <a href="{{ route('services') }}" class="inline-flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-700 px-9 py-4 rounded-full font-bold hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50/50 transition-all duration-300">
                     Explore Services
                 </a>
             </div>
@@ -120,7 +120,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             
             <!-- Card 1: Website AI Chatbox -->
-            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-emerald-500/30 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]" onclick="window.location='{{ route('prototype1.services') }}'" data-aos="fade-up">
+            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-emerald-500/30 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]" onclick="window.location='{{ route('services') }}'" data-aos="fade-up">
                 <div class="absolute -top-20 -right-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-emerald-500/20"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div>
@@ -140,7 +140,7 @@
             </div>
 
             <!-- Card 2: Website Systems (1 col) -->
-            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-purple-500/30 hover:shadow-[0_0_40px_rgba(167,139,250,0.15)]" onclick="window.location='{{ route('prototype1.services') }}'" data-aos="fade-up" data-aos-delay="100">
+            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-purple-500/30 hover:shadow-[0_0_40px_rgba(167,139,250,0.15)]" onclick="window.location='{{ route('services') }}'" data-aos="fade-up" data-aos-delay="100">
                 <div class="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-purple-500/20"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div>
@@ -160,7 +160,7 @@
             </div>
 
             <!-- Card 3: Mobile Apps (1 col) -->
-            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(96,165,250,0.15)]" onclick="window.location='{{ route('prototype1.services') }}'" data-aos="fade-up" data-aos-delay="200">
+            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(96,165,250,0.15)]" onclick="window.location='{{ route('services') }}'" data-aos="fade-up" data-aos-delay="200">
                 <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-blue-500/20"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div>
@@ -180,7 +180,7 @@
             </div>
 
             <!-- Card 4: UI/UX Design -->
-            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-fuchsia-500/30 hover:shadow-[0_0_40px_rgba(232,121,249,0.15)]" onclick="window.location='{{ route('prototype1.services') }}'" data-aos="fade-up" data-aos-delay="300">
+            <div class="group relative rounded-[2.5rem] p-6 md:p-8 bg-gray-950/80 backdrop-blur-xl shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer border border-white/10 hover:border-fuchsia-500/30 hover:shadow-[0_0_40px_rgba(232,121,249,0.15)]" onclick="window.location='{{ route('services') }}'" data-aos="fade-up" data-aos-delay="300">
                 <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-fuchsia-500/20"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div>
@@ -202,7 +202,7 @@
         </div>
 
         <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="300">
-            <a href="{{ route('prototype1.services') }}" class="inline-flex items-center gap-2 text-purple-600 font-bold hover:text-purple-800 transition-colors group text-sm">
+            <a href="{{ route('services') }}" class="inline-flex items-center gap-2 text-purple-600 font-bold hover:text-purple-800 transition-colors group text-sm">
                 View all services &amp; capabilities
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -388,11 +388,11 @@
         </h2>
         <p class="text-gray-400 mb-12 text-lg max-w-xl mx-auto leading-relaxed">Let's turn your vision into a world-class digital product. Book a free 30-minute consultation — no strings attached.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="{{ route('prototype1.contact') }}" class="group inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all shadow-2xl hover:-translate-y-0.5 duration-300">
+            <a href="{{ route('contact') }}" class="group inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all shadow-2xl hover:-translate-y-0.5 duration-300">
                 Book a Free Call
                 <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
-            <a href="{{ route('prototype1.services') }}" class="inline-flex items-center justify-center gap-2 border border-white/15 text-white/70 px-10 py-4 rounded-full font-semibold hover:bg-white/8 hover:text-white transition-all duration-300">
+            <a href="{{ route('services') }}" class="inline-flex items-center justify-center gap-2 border border-white/15 text-white/70 px-10 py-4 rounded-full font-semibold hover:bg-white/8 hover:text-white transition-all duration-300">
                 See Our Work
             </a>
         </div>

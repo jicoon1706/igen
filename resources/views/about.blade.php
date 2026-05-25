@@ -1,4 +1,4 @@
-@extends('prototype1.layout')
+@extends('layout')
 @section('title', 'IGEN VERITAS | About Us')
 @section('content')
 
@@ -253,7 +253,7 @@
 
                 <h2 class="text-5xl font-black text-gray-900 mb-6 tracking-tight">Ready to Start<br>Your <span class="gradient-text">Journey?</span></h2>
                 <p class="text-gray-500 mb-10 text-lg leading-relaxed">Partner with a team that treats your project like their own. Book a free discovery call today.</p>
-                <a href="{{ route('prototype1.contact') }}" class="inline-flex items-center gap-2 bg-primary-gradient text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/45 hover:-translate-y-0.5 transition-all duration-300 group">
+                <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 bg-primary-gradient text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/45 hover:-translate-y-0.5 transition-all duration-300 group">
                     Book a Free Consultation
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>

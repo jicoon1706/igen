@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'IGEN VERITAS | Prototype 1')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'IGEN VERITAS')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Alpine.js -->
@@ -175,19 +176,19 @@
     <!-- Floating Navigation -->
     <nav id="floating-nav">
         <div class="nav-inner">
-            <a href="{{ route('prototype1.home') }}" class="nav-logo">
+            <a href="{{ route('home') }}" class="nav-logo">
                 <img src="{{ asset('igen-logo.png') }}" alt="IGEN VERITAS">
             </a>
 
             <ul class="nav-links">
-                <li><a href="{{ route('prototype1.home') }}"     class="nav-link {{ request()->routeIs('prototype1.home')     ? 'active' : '' }}">Home</a></li>
-                <li><a href="{{ route('prototype1.about') }}"    class="nav-link {{ request()->routeIs('prototype1.about')    ? 'active' : '' }}">About Us</a></li>
-                <li><a href="{{ route('prototype1.services') }}" class="nav-link {{ request()->routeIs('prototype1.services') ? 'active' : '' }}">Services</a></li>
-                <li><a href="{{ route('prototype1.portfolio') }}" class="nav-link {{ request()->routeIs('prototype1.portfolio') ? 'active' : '' }}">Portfolio</a></li>
+                <li><a href="{{ route('home') }}"     class="nav-link {{ request()->routeIs('home')     ? 'active' : '' }}">Home</a></li>
+                <li><a href="{{ route('about') }}"    class="nav-link {{ request()->routeIs('about')    ? 'active' : '' }}">About Us</a></li>
+                <li><a href="{{ route('services') }}" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
+                <li><a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}">Portfolio</a></li>
             </ul>
 
             <div style="display:flex;align-items:center;gap:10px;">
-                <a href="{{ route('prototype1.contact') }}" class="nav-cta">
+                <a href="{{ route('contact') }}" class="nav-cta">
                     Contact Us
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -210,14 +211,14 @@
                 <line x1="6"  y1="6" x2="18" y2="18"/>
             </svg>
         </button>
-        <a href="{{ route('prototype1.home') }}" style="padding-bottom:0;margin-bottom:4px;">
+        <a href="{{ route('home') }}" style="padding-bottom:0;margin-bottom:4px;">
             <img src="{{ asset('igen-logo.png') }}" alt="IGEN VERITAS" style="height:30px;width:auto;display:block;margin-bottom:8px;">
         </a>
-        <a href="{{ route('prototype1.home') }}">Home</a>
-        <a href="{{ route('prototype1.about') }}">About Us</a>
-        <a href="{{ route('prototype1.services') }}">Services</a>
-        <a href="{{ route('prototype1.portfolio') }}">Portfolio</a>
-        <a href="{{ route('prototype1.contact') }}" class="mobile-cta">Contact Us →</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('about') }}">About Us</a>
+        <a href="{{ route('services') }}">Services</a>
+        <a href="{{ route('portfolio') }}">Portfolio</a>
+        <a href="{{ route('contact') }}" class="mobile-cta">Contact Us →</a>
     </div>
 
     <!-- Main Content -->
@@ -230,7 +231,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
                 <div class="col-span-1 md:col-span-2">
-                    <a href="{{ route('prototype1.home') }}" class="block mb-4 transition-opacity hover:opacity-80">
+                    <a href="{{ route('home') }}" class="block mb-4 transition-opacity hover:opacity-80">
                         <img src="{{ asset('igen-logo.png') }}" alt="IGEN VERITAS" style="height: 36px; width: auto; display: block;">
                     </a>
                     <p class="text-gray-400 max-w-sm mb-6 leading-relaxed">Smart Web & Mobile App Development. Reliable, scalable, and designed with purpose.</p>
@@ -238,9 +239,9 @@
                 <div>
                     <h4 class="text-white font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="{{ route('prototype1.services') }}" class="text-gray-400 hover:text-purple-400 transition-colors">Services</a></li>
-                        <li><a href="{{ route('prototype1.about') }}" class="text-gray-400 hover:text-purple-400 transition-colors">About Us</a></li>
-                        <li><a href="{{ route('prototype1.contact') }}" class="text-gray-400 hover:text-purple-400 transition-colors">Contact</a></li>
+                        <li><a href="{{ route('services') }}" class="text-gray-400 hover:text-purple-400 transition-colors">Services</a></li>
+                        <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-purple-400 transition-colors">About Us</a></li>
+                        <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-purple-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
