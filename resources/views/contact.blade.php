@@ -193,7 +193,7 @@
                                     <div class="grid grid-cols-7 gap-2 text-center text-xs tracking-widest uppercase mb-4">
                                         <div class="text-gray-500 font-bold">Su</div><div class="text-gray-500 font-bold">Mo</div><div class="text-gray-500 font-bold">Tu</div><div class="text-gray-500 font-bold">We</div><div class="text-gray-500 font-bold">Th</div><div class="text-gray-500 font-bold">Fr</div><div class="text-gray-500 font-bold">Sa</div>
                                     </div>
-                                    <div class="grid grid-cols-7 gap-2 text-center">
+                                    <div class="grid grid-cols-7 gap-1 text-center">
                                         <div></div><div></div><div></div><div></div><div></div>
                                         <template x-for="day in 31">
                                             <button 
@@ -347,7 +347,10 @@
             times: ['09:00 AM', '10:00 AM', '11:30 AM', '01:00 PM', '02:30 PM', '04:00 PM'],
 
             isPast(day) {
-                return day < 10;
+                const today = new Date();
+                const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                const cellDate = new Date(2026, 4, day); // May 2026 (month is 0-indexed)
+                return cellDate <= todayStart;
             },
 
             selectDate(day) {
@@ -364,7 +367,7 @@
                 this.loading = true;
                 this.errorMessage = '';
                 try {
-                    const res = await fetch('{{ route('contact.store') }}', {
+                    const res = await fetch('{{ route('booking.store') }}', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -376,7 +379,8 @@
                             last_name: this.form.last_name,
                             email: this.form.email,
                             company: this.form.company,
-                            subject: `Consultation booking — May ${this.selectedDate}, 2026 at ${this.selectedTime}`,
+                            date: String(this.selectedDate),
+                            time: this.selectedTime,
                             message: this.form.message,
                         }),
                     });

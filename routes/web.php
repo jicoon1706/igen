@@ -9,4 +9,4 @@ Route::view('/services', 'services')->name('services');
 Route::view('/portfolio', 'portfolio')->name('portfolio');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/booking', [ContactController::class, 'store'])->name('booking.store');

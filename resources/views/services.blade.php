@@ -323,16 +323,12 @@
 
                         /* ── iPhone 16 Pro Frame ── */
                         .iphone-frame {
-                            position: absolute; bottom: 5px; right: 0; width: 140px; background: #2c2c2e; border-radius: 32px; padding: 6px;
-                            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px #48484a, inset 0 0 0 1px rgba(255,255,255,0.1), -10px 10px 30px rgba(124,58,237,0.2);
+                            position: absolute; bottom: 5px; right: 0; width: 150px;
                             z-index: 5; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+                            filter: drop-shadow(-10px 20px 35px rgba(0,0,0,0.45)) drop-shadow(-4px 4px 16px rgba(124,58,237,0.2));
                         }
-                        .device-showcase:hover .iphone-frame { transform: translateY(-12px) translateX(-5px) rotate(-4deg) scale(1.05); box-shadow: 0 40px 70px rgba(0,0,0,0.5), 0 0 0 1px #48484a, inset 0 0 0 1px rgba(255,255,255,0.1), -15px 15px 40px rgba(236,72,153,0.3); }
-                        .iphone-screen { width: 100%; height: 285px; overflow: hidden; border-radius: 26px; position: relative; background: #000; }
-                        .iphone-dynamic-island { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 42px; height: 14px; background: #000; border-radius: 20px; z-index: 10; box-shadow: 0 0 0 0.5px rgba(255,255,255,0.08); }
-                        .iphone-bar { width: 44px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; margin: 6px auto 2px; }
-                        .iphone-frame::before { content: ''; position: absolute; right: -2px; top: 60px; width: 2px; height: 30px; background: #636366; border-radius: 0 2px 2px 0; }
-                        .iphone-frame::after { content: ''; position: absolute; left: -2px; top: 50px; width: 2px; height: 22px; background: #636366; border-radius: 2px 0 0 2px; }
+                        .device-showcase:hover .iphone-frame { transform: translateY(-12px) translateX(-5px) rotate(-4deg) scale(1.05); filter: drop-shadow(-16px 28px 50px rgba(0,0,0,0.6)) drop-shadow(-8px 8px 28px rgba(236,72,153,0.3)); }
+                        .iphone-frame img { display: block; width: 100%; height: auto; }
                         
                         /* Interconnected Link Element */
                         .eco-link {
@@ -370,12 +366,7 @@
 
                         <!-- iPhone 16 Pro -->
                         <div class="iphone-frame">
-                            <div class="iphone-screen">
-                                <div class="iphone-dynamic-island z-20"></div>
-                                <div class="absolute inset-0 eco-bg eco-bg-ios opacity-20 mix-blend-color z-10 pointer-events-none"></div>
-                                <img src="{{ asset('images/sofea_demo.png') }}" alt="Mobile App UI Design" style="width: 100%; height: 100%; object-fit: cover; object-position: left; display: block; position: relative; z-0">
-                            </div>
-                            <div class="iphone-bar"></div>
+                            <img src="{{ asset('images/iphoneFrame2_clean.png') }}" alt="Mobile App UI Design">
                         </div>
                     </div>
                 </div>
@@ -454,8 +445,8 @@
                         <path d="M 0 65 C 40 65 50 100 100 100" fill="none" stroke="rgba(234,88,12,0.5)" stroke-width="1.5" stroke-dasharray="4 4" class="opacity-70" style="filter: drop-shadow(0 0 6px rgba(234,88,12,0.8));"/>
                         <!-- To n8n (Middle Right) -->
                         <path d="M 100% 175 C calc(100% - 40px) 175 calc(100% - 60px) 160 calc(100% - 100px) 160" fill="none" stroke="rgba(219,39,119,0.5)" stroke-width="1.5" stroke-dasharray="4 4" class="opacity-70" style="filter: drop-shadow(0 0 6px rgba(219,39,119,0.8));"/>
-                        <!-- To Tr (Bottom Center) -->
-                        <path d="M 55% 100% C 55% calc(100% - 30px) 50% calc(100% - 40px) 50% calc(100% - 60px)" fill="none" stroke="rgba(220,38,38,0.5)" stroke-width="1.5" stroke-dasharray="4 4" class="opacity-70" style="filter: drop-shadow(0 0 6px rgba(220,38,38,0.8));"/>
+                        <!-- To Botpress (Bottom Center) -->
+                        <path d="M 55% 100% C 55% calc(100% - 30px) 50% calc(100% - 40px) 50% calc(100% - 60px)" fill="none" stroke="rgba(80,80,80,0.6)" stroke-width="1.5" stroke-dasharray="4 4" class="opacity-70" style="filter: drop-shadow(0 0 6px rgba(80,80,80,0.8));"/>
                     </svg>
 
                     <!-- Claude Logo Overlay (Top Left aligned to sidebar) -->
@@ -474,14 +465,11 @@
                         </div>
                     </div>
 
-                    <!-- Tr Logo Overlay (Bottom Center overlapping input) -->
-                    <div class="absolute -bottom-4 left-[55%] -translate-x-1/2 z-30 bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] rounded-2xl p-2.5 border border-white/60 flex items-center justify-center transform transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_40px_rgba(220,38,38,0.25)] group-hover:translate-y-1 ring-1 ring-black/5 delay-150">
+                    <!-- Botpress Logo Overlay (Bottom Center overlapping input) -->
+                    <div class="absolute -bottom-4 left-[55%] -translate-x-1/2 z-30 bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] rounded-2xl p-2.5 border border-white/60 flex items-center justify-center transform transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] group-hover:translate-y-1 ring-1 ring-black/5 delay-150">
                         <div class="relative">
-                            <div class="absolute inset-0 bg-red-500/20 blur-md rounded-full"></div>
-                            <div class="w-12 h-12 rounded-xl bg-linear-to-br from-red-500 to-red-600 shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] flex items-center justify-center relative overflow-hidden z-10 border border-red-700/50">
-                                <div class="absolute inset-0 bg-linear-to-b from-white/20 to-transparent"></div>
-                                <span class="text-white font-black text-[22px] tracking-tighter drop-shadow-md relative z-10 leading-none" style="font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;">Tr</span>
-                            </div>
+                            <div class="absolute inset-0 bg-gray-900/20 blur-md rounded-full"></div>
+                            <img src="{{ asset('images/botpress_icon.png') }}" alt="Botpress" class="w-12 h-12 rounded-xl object-contain relative z-10">
                         </div>
                     </div>
                 </div>
