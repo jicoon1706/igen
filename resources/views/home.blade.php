@@ -148,7 +148,7 @@
                         <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-4 font-medium">Convert visitors into customers with high-performance, SEO-optimized business platforms.</p>
                         
                         <div class="flex items-center gap-2 text-xs font-bold text-purple-300 mb-4 bg-purple-950/50 w-max px-3 py-1.5 rounded-lg border border-purple-800/50 shadow-sm">
-                            <span class="text-purple-400">✓</span> 50+ projects launched
+                            <span class="text-purple-400">✓</span> Tailored to your brand
                         </div>
                     </div>
                     

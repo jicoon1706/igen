@@ -59,7 +59,7 @@ class ContactController extends Controller
 
             $resend->emails()->send([
                 'from'    => 'IGEN VERITAS <onboarding@resend.dev>',
-                'to'      => ['ariffnorjihan@gmail.com'],
+                'to'      => ['igenveritas@gmail.com'],
                 'subject' => "New Booking — {$name} on May {$booking->date}, 2026 at {$booking->time}",
                 'html'    => "
                     <div style='font-family:sans-serif;max-width:600px;margin:0 auto;'>
