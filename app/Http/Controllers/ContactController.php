@@ -60,14 +60,14 @@ class ContactController extends Controller
             $resend->emails()->send([
                 'from'    => 'IGEN VERITAS <onboarding@resend.dev>',
                 'to'      => ['igenveritas@gmail.com'],
-                'subject' => "New Booking — {$name} on May {$booking->date}, 2026 at {$booking->time}",
+                'subject' => "New Booking — {$name} on {$booking->date} at {$booking->time}",
                 'html'    => "
                     <div style='font-family:sans-serif;max-width:600px;margin:0 auto;'>
                         <h2 style='color:#7c3aed;'>New Consultation Booking</h2>
                         <table style='width:100%;border-collapse:collapse;'>
                             <tr><td style='padding:8px 0;color:#6b7280;width:140px;'>Name</td><td style='padding:8px 0;font-weight:600;'>{$name}{$company}</td></tr>
                             <tr><td style='padding:8px 0;color:#6b7280;'>Email</td><td style='padding:8px 0;'><a href='mailto:{$booking->email}' style='color:#7c3aed;'>{$booking->email}</a></td></tr>
-                            <tr><td style='padding:8px 0;color:#6b7280;'>Date &amp; Time</td><td style='padding:8px 0;font-weight:600;'>May {$booking->date}, 2026 at {$booking->time}</td></tr>
+                            <tr><td style='padding:8px 0;color:#6b7280;'>Date &amp; Time</td><td style='padding:8px 0;font-weight:600;'>{$booking->date} at {$booking->time}</td></tr>
                             <tr><td style='padding:8px 0;color:#6b7280;vertical-align:top;'>Message</td><td style='padding:8px 0;'>" . nl2br(htmlspecialchars($booking->message)) . "</td></tr>
                         </table>
                         <hr style='border:none;border-top:1px solid #e5e7eb;margin:24px 0;'>

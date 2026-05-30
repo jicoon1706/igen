@@ -366,6 +366,22 @@
 
     @media (max-width: 767px) {
         .cta-person-left, .cta-person-right { height: 50%; max-height: 400px; }
+        
+        @keyframes personSlideLeftMobile {
+            0%   { opacity: 0;   transform: translateX(5vw) scale(1.45); }
+            20%  { opacity: 1;   transform: translateX(5vw) scale(1.45); }
+            70%  { opacity: 1;   transform: translateX(-35vw) scale(1.05); }
+            100% { opacity: 0.5; transform: translateX(-35vw) scale(1.05); }
+        }
+        @keyframes personSlideRightMobile {
+            0%   { opacity: 0;   transform: translateX(-5vw) scaleX(-1.45) scaleY(1.45); }
+            20%  { opacity: 1;   transform: translateX(-5vw) scaleX(-1.45) scaleY(1.45); }
+            70%  { opacity: 1;   transform: translateX(35vw)  scaleX(-1.05) scaleY(1.05); }
+            100% { opacity: 0.5; transform: translateX(35vw)  scaleX(-1.05) scaleY(1.05); }
+        }
+        
+        .cta-person-left.cta-animated  { animation: personSlideLeftMobile  3s ease-in-out forwards; }
+        .cta-person-right.cta-animated { animation: personSlideRightMobile 3s ease-in-out forwards; }
     }
 </style>
 

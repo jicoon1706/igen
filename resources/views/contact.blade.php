@@ -186,16 +186,18 @@
                                 
                                 <div class="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-6 backdrop-blur-sm">
                                     <div class="flex justify-between items-center mb-6">
-                                        <button class="p-2 text-gray-400 hover:text-white bg-gray-700/50 hover:bg-purple-600/50 rounded-xl transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                                        <span class="font-bold text-lg text-white tracking-wide">May 2026</span>
-                                        <button class="p-2 text-gray-400 hover:text-white bg-gray-700/50 hover:bg-purple-600/50 rounded-xl transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                                        <button @click="prevMonth" :disabled="isPastMonth()" :class="isPastMonth() ? 'opacity-50 cursor-not-allowed' : 'hover:text-white hover:bg-purple-600/50'" class="p-2 text-gray-400 bg-gray-700/50 rounded-xl transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                                        <span class="font-bold text-lg text-white tracking-wide" x-text="monthName + ' ' + displayYear"></span>
+                                        <button @click="nextMonth" class="p-2 text-gray-400 hover:text-white bg-gray-700/50 hover:bg-purple-600/50 rounded-xl transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
                                     </div>
                                     <div class="grid grid-cols-7 gap-2 text-center text-xs tracking-widest uppercase mb-4">
                                         <div class="text-gray-500 font-bold">Su</div><div class="text-gray-500 font-bold">Mo</div><div class="text-gray-500 font-bold">Tu</div><div class="text-gray-500 font-bold">We</div><div class="text-gray-500 font-bold">Th</div><div class="text-gray-500 font-bold">Fr</div><div class="text-gray-500 font-bold">Sa</div>
                                     </div>
                                     <div class="grid grid-cols-7 gap-1 text-center">
-                                        <div></div><div></div><div></div><div></div><div></div>
-                                        <template x-for="day in 31">
+                                        <template x-for="blank in blankDays">
+                                            <div></div>
+                                        </template>
+                                        <template x-for="day in daysInMonth">
                                             <button 
                                                 @click="selectDate(day)"
                                                 class="date-btn h-10 w-full rounded-xl flex items-center justify-center text-sm font-semibold border"
@@ -221,12 +223,12 @@
                                     <button @click="step = 1" class="mr-4 p-2.5 rounded-full bg-gray-800 hover:bg-purple-600 text-gray-300 hover:text-white transition-all shadow-md group"><svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                                     <div>
                                         <h4 class="text-xl font-bold text-white">Select a Time</h4>
-                                        <p class="text-sm text-purple-300">May <span x-text="selectedDate"></span>, 2026</p>
+                                        <p class="text-sm text-purple-300"><span x-text="monthName"></span> <span x-text="selectedDate"></span>, <span x-text="displayYear"></span></p>
                                     </div>
                                 </div>
                                 
                                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                    <template x-for="time in times">
+                                    <template x-for="time in availableTimes">
                                         <button 
                                             @click="selectTime(time)"
                                             class="time-btn py-4 px-4 rounded-xl text-sm font-bold text-gray-300"
@@ -258,7 +260,7 @@
                                         <h4 class="text-xl font-bold text-white">Your Details</h4>
                                         <div class="flex items-center text-sm text-purple-300 mt-1">
                                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                            May <span x-text="selectedDate" class="ml-1"></span> at <span x-text="selectedTime" class="ml-1"></span>
+                                            <span x-text="monthName"></span> <span x-text="selectedDate" class="ml-1"></span>, <span x-text="displayYear" class="mr-1"></span> at <span x-text="selectedTime" class="ml-1"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -314,7 +316,7 @@
                                 <h3 class="text-3xl font-black text-white mb-3">Booking Confirmed!</h3>
                                 <p class="text-purple-200 mb-2 text-lg">We're looking forward to meeting you on</p>
                                 <div class="inline-block px-6 py-2 bg-white/10 border border-white/20 rounded-full backdrop-blur-md mb-8">
-                                    <span class="font-bold text-white tracking-wide">May <span x-text="selectedDate"></span>, 2026 at <span x-text="selectedTime"></span></span>
+                                    <span class="font-bold text-white tracking-wide"><span x-text="monthName"></span> <span x-text="selectedDate"></span>, <span x-text="displayYear"></span> at <span x-text="selectedTime"></span></span>
                                 </div>
                                 <p class="text-sm text-gray-400 mb-8 max-w-sm">We've sent a calendar invitation and confirmation to your email address.</p>
                                 
@@ -337,68 +339,128 @@
 <script>
     // Alpine.js Booking Logic
     document.addEventListener('alpine:init', () => {
-        Alpine.data('bookingApp', () => ({
-            step: 1,
-            selectedDate: null,
-            selectedTime: null,
-            loading: false,
-            errorMessage: '',
-            form: { first_name: '', last_name: '', email: '', company: '', message: '' },
-            times: ['09:00 AM', '10:00 AM', '11:30 AM', '01:00 PM', '02:30 PM', '04:00 PM'],
+        Alpine.data('bookingApp', () => {
+            const today = new Date();
+            return {
+                step: 1,
+                selectedDate: null,
+                selectedTime: null,
+                loading: false,
+                errorMessage: '',
+                form: { first_name: '', last_name: '', email: '', company: '', message: '' },
+                
+                displayMonth: today.getMonth(),
+                displayYear: today.getFullYear(),
 
-            isPast(day) {
-                const today = new Date();
-                const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-                const cellDate = new Date(2026, 4, day); // May 2026 (month is 0-indexed)
-                return cellDate <= todayStart;
-            },
-
-            selectDate(day) {
-                if (this.isPast(day)) return;
-                this.selectedDate = day;
-                this.step = 2;
-            },
-
-            selectTime(time) {
-                this.selectedTime = time;
-            },
-
-            async submitBooking() {
-                this.loading = true;
-                this.errorMessage = '';
-                try {
-                    const res = await fetch('{{ route('booking.store') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        },
-                        body: JSON.stringify({
-                            first_name: this.form.first_name,
-                            last_name: this.form.last_name,
-                            email: this.form.email,
-                            company: this.form.company,
-                            date: String(this.selectedDate),
-                            time: this.selectedTime,
-                            message: this.form.message,
-                        }),
-                    });
-                    const data = await res.json().catch(() => ({}));
-                    if (!res.ok || data.success === false) {
-                        const firstError = data.errors ? Object.values(data.errors)[0][0] : (data.message || 'Submission failed. Please try again.');
-                        this.errorMessage = firstError;
-                        return;
+                get availableTimes() {
+                    if (!this.selectedDate) return [];
+                    const dateObj = new Date(this.displayYear, this.displayMonth, this.selectedDate);
+                    const dayOfWeek = dateObj.getDay(); // 0 is Sunday, 6 is Saturday
+                    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                    
+                    if (isWeekend) {
+                        return [
+                            '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', 
+                            '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', 
+                            '05:00 PM', '06:00 PM'
+                        ];
+                    } else {
+                        return [
+                            '09:00 PM', '09:30 PM', '10:00 PM', '10:30 PM', '11:00 PM'
+                        ];
                     }
-                    this.step = 4;
-                    this.form = { first_name: '', last_name: '', email: '', company: '', message: '' };
-                } catch (e) {
-                    this.errorMessage = 'Network error. Please try again.';
-                } finally {
-                    this.loading = false;
+                },
+
+                get monthName() {
+                    return new Date(this.displayYear, this.displayMonth).toLocaleString('default', { month: 'long' });
+                },
+
+                get daysInMonth() {
+                    return new Date(this.displayYear, this.displayMonth + 1, 0).getDate();
+                },
+
+                get blankDays() {
+                    return new Date(this.displayYear, this.displayMonth, 1).getDay();
+                },
+
+                isPastMonth() {
+                    const currentMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+                    const displayMonthStart = new Date(this.displayYear, this.displayMonth, 1);
+                    return displayMonthStart <= currentMonthStart;
+                },
+
+                prevMonth() {
+                    if (this.isPastMonth()) return;
+                    if (this.displayMonth === 0) {
+                        this.displayMonth = 11;
+                        this.displayYear--;
+                    } else {
+                        this.displayMonth--;
+                    }
+                },
+
+                nextMonth() {
+                    if (this.displayMonth === 11) {
+                        this.displayMonth = 0;
+                        this.displayYear++;
+                    } else {
+                        this.displayMonth++;
+                    }
+                },
+
+                isPast(day) {
+                    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                    const cellDate = new Date(this.displayYear, this.displayMonth, day);
+                    return cellDate <= todayStart;
+                },
+
+                selectDate(day) {
+                    if (this.isPast(day)) return;
+                    this.selectedDate = day;
+                    this.step = 2;
+                },
+
+                selectTime(time) {
+                    this.selectedTime = time;
+                },
+
+                async submitBooking() {
+                    this.loading = true;
+                    this.errorMessage = '';
+                    try {
+                        const res = await fetch('{{ route('booking.store') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            },
+                            body: JSON.stringify({
+                                first_name: this.form.first_name,
+                                last_name: this.form.last_name,
+                                email: this.form.email,
+                                company: this.form.company,
+                                date: `${this.monthName} ${this.selectedDate}, ${this.displayYear}`,
+                                time: this.selectedTime,
+                                message: this.form.message,
+                            }),
+                        });
+                        const data = await res.json().catch(() => ({}));
+                        if (!res.ok || data.success === false) {
+                            const firstError = data.errors ? Object.values(data.errors)[0][0] : (data.message || 'Submission failed. Please try again.');
+                            this.errorMessage = firstError;
+                            return;
+                        }
+                        this.step = 4;
+                        this.form = { first_name: '', last_name: '', email: '', company: '', message: '' };
+                    } catch (e) {
+                        this.errorMessage = 'Network error. Please try again.';
+                    } finally {
+                        this.loading = false;
+                    }
                 }
             }
-        }))
+        })
     })
 </script>
 @endpush
