@@ -10,3 +10,4 @@ Route::view('/portfolio', 'portfolio')->name('portfolio');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/booking', [ContactController::class, 'store'])->name('booking.store');
+Route::get('/booking/slots', [ContactController::class, 'getBookedSlots'])->name('booking.slots');

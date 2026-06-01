@@ -122,11 +122,17 @@
                             background: rgba(255, 255, 255, 0.03);
                             border: 1px solid rgba(255, 255, 255, 0.1);
                         }
-                        .time-btn:hover {
+                        .time-btn:not(:disabled):hover {
                             background: rgba(139, 92, 246, 0.1);
                             border-color: rgba(139, 92, 246, 0.5);
                             transform: translateY(-2px);
                             box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+                        }
+                        .time-btn:disabled {
+                            cursor: not-allowed;
+                            opacity: 0.4;
+                            background: rgba(255, 255, 255, 0.02);
+                            border-color: rgba(255, 255, 255, 0.05);
                         }
                         .time-btn.selected {
                             background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
@@ -229,12 +235,15 @@
                                 
                                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                     <template x-for="time in availableTimes">
-                                        <button 
+                                        <button
                                             @click="selectTime(time)"
-                                            class="time-btn py-4 px-4 rounded-xl text-sm font-bold text-gray-300"
-                                            :class="selectedTime === time ? 'selected text-white' : ''"
-                                            x-text="time"
-                                        ></button>
+                                            class="time-btn py-4 px-4 rounded-xl text-sm font-bold relative flex flex-col items-center justify-center gap-0.5"
+                                            :class="isBooked(time) ? 'text-gray-600' : (selectedTime === time ? 'selected text-white' : 'text-gray-300')"
+                                            :disabled="isBooked(time)"
+                                        >
+                                            <span x-text="time"></span>
+                                            <span x-show="isBooked(time)" class="text-[10px] font-semibold uppercase tracking-wider text-gray-600">Booked</span>
+                                        </button>
                                     </template>
                                 </div>
                                 
@@ -320,7 +329,7 @@
                                 </div>
                                 <p class="text-sm text-gray-400 mb-8 max-w-sm">We've sent a calendar invitation and confirmation to your email address.</p>
                                 
-                                <button @click="step = 1; selectedDate = null; selectedTime = null" class="text-purple-400 font-bold hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 group flex items-center">
+                                <button @click="step = 1; selectedDate = null; selectedTime = null; bookedTimes = []" class="text-purple-400 font-bold hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 group flex items-center">
                                     <svg class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                                     Book another session
                                 </button>
@@ -345,6 +354,7 @@
                 step: 1,
                 selectedDate: null,
                 selectedTime: null,
+                bookedTimes: [],
                 loading: false,
                 errorMessage: '',
                 form: { first_name: '', last_name: '', email: '', company: '', message: '' },
@@ -414,13 +424,26 @@
                     return cellDate <= todayStart;
                 },
 
-                selectDate(day) {
+                async selectDate(day) {
                     if (this.isPast(day)) return;
                     this.selectedDate = day;
+                    this.selectedTime = null;
+                    this.bookedTimes = [];
+                    const dateStr = `${this.monthName} ${day}, ${this.displayYear}`;
+                    try {
+                        const res = await fetch(`{{ route('booking.slots') }}?date=${encodeURIComponent(dateStr)}`);
+                        const data = await res.json();
+                        this.bookedTimes = data.bookedTimes || [];
+                    } catch (e) {}
                     this.step = 2;
                 },
 
+                isBooked(time) {
+                    return this.bookedTimes.includes(time);
+                },
+
                 selectTime(time) {
+                    if (this.isBooked(time)) return;
                     this.selectedTime = time;
                 },
 

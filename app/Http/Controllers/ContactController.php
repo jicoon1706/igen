@@ -13,6 +13,16 @@ class ContactController extends Controller
         return view('contact');
     }
 
+    public function getBookedSlots(Request $request)
+    {
+        $date = $request->query('date');
+        if (!$date) {
+            return response()->json(['bookedTimes' => []]);
+        }
+        $bookedTimes = Booking::where('date', $date)->pluck('time')->toArray();
+        return response()->json(['bookedTimes' => $bookedTimes]);
+    }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -58,7 +68,7 @@ class ContactController extends Controller
             $resend = new \Resend\Client($transporter);
 
             $resend->emails()->send([
-                'from'    => 'IGEN VERITAS <onboarding@resend.dev>',
+                'from'    => 'IGEN VERITAS <' . env('MAIL_FROM_ADDRESS', 'onboarding@resend.dev') . '>',
                 'to'      => ['igenveritas@gmail.com'],
                 'subject' => "New Booking — {$name} on {$booking->date} at {$booking->time}",
                 'html'    => "
@@ -72,6 +82,23 @@ class ContactController extends Controller
                         </table>
                         <hr style='border:none;border-top:1px solid #e5e7eb;margin:24px 0;'>
                         <p style='color:#9ca3af;font-size:12px;'>Sent from IGEN VERITAS booking system</p>
+                    </div>
+                ",
+            ]);
+
+            // Send Confirmation to the Customer
+            $resend->emails()->send([
+                'from'    => 'IGEN VERITAS <' . env('MAIL_FROM_ADDRESS', 'onboarding@resend.dev') . '>',
+                'to'      => [$booking->email],
+                'subject' => "Booking Confirmed: Let's build something great!",
+                'html'    => "
+                    <div style='font-family:sans-serif;max-width:600px;margin:0 auto;color:#374151;'>
+                        <h2 style='color:#7c3aed;'>Booking Confirmed!</h2>
+                        <p>Hi {$booking->first_name},</p>
+                        <p>Your 30-minute consultation with IGEN VERITAS is confirmed for <strong>{$booking->date} at {$booking->time}</strong>.</p>
+                        <p>We're excited to learn more about your project. We'll be in touch shortly with the meeting details.</p>
+                        <hr style='border:none;border-top:1px solid #e5e7eb;margin:24px 0;'>
+                        <p style='font-size:14px;color:#6b7280;'>Best regards,<br>The IGEN VERITAS Team</p>
                     </div>
                 ",
             ]);
